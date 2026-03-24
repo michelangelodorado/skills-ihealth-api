@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# editor / temp
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# env / secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+private/
+
+# local outputs
+*.log
+*.out
+*.xml
+*.json.tmp
+
+# packaged artifacts (optional; remove if you want to version built packages)
+*.skill
