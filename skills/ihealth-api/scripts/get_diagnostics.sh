@@ -16,5 +16,5 @@ API_URL="https://ihealth2-api.f5.com/qkview-analyzer/api/qkviews/$QKVIEW_ID/diag
 curl -sS --request GET \
   --url "$API_URL" \
   -H "Authorization: Bearer $TOKEN" \
-  -H "Accept: application/vnd.f5.ihealth.api" \
+  -H "Accept: application/json, application/vnd.f5.ihealth.api, application/xml;q=0.5" \
   -H "User-Agent: OpenClaw" | jq
