@@ -17,13 +17,29 @@ Default assumptions:
 - Account names are `client_id` and `client_secret`.
 - Tokens are valid for about 30 minutes.
 
+## Supported Operations
+
+- Add QKView (upload)
+- Delete QKView
+- Toggle QKView’s visibility in the GUI
+- Retrieve previously uploaded QKView
+- List QKViews
+- Get API version / parameters
+- Open a support case
+- Get End of Life data for F5 products
+- Retrieve iHealth diagnostic data
+- Retrieve files
+- Retrieve tmsh command output subset
+- Retrieve QKView metadata
+- Log search
+
 ## Workflow
 
 1. Confirm the task.
-   - Common tasks: get token, list QKViews, inspect one QKView, upload a QKView.
+   - Supported: get token, list/add/delete/toggle QKViews, inspect/upload, search logs, fetch diagnostics/metadata/files, open cases, get EOL, get API version.
 2. Read credentials from Keychain at runtime.
 3. Exchange credentials for a bearer token.
-4. Call the required iHealth endpoint.
+4. Call the required iHealth endpoint or use the provided script stub.
 5. Do not print secrets unless the user explicitly asks and understands the risk.
 6. If a credential was pasted into chat, tell the user to rotate it.
 
