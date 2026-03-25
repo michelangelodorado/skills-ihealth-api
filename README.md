@@ -1,4 +1,4 @@
-# ihealth-api OpenClaw skill
+# skills-ihealth-api
 
 A reusable OpenClaw skill for working with the F5 iHealth API.
 
