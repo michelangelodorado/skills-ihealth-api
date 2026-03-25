@@ -1,8 +1,20 @@
-#!/bin/bash
-# get_metadata.sh
-# Retrieves QKView metadata
-# Usage: ./get_metadata.sh <qkview_id>
+#!/usr/bin/env bash
+set -euo pipefail
 
-set -e
-# TODO: Obtain token using get_token.sh
-# TODO: Fetch QKView metadata via API
+QKVIEW_ID="$1"
+if [[ -z "$QKVIEW_ID" ]]; then
+  echo "Usage: $0 <qkview_id>"
+  exit 1
+fi
+
+SCRIPT_DIR="$(dirname "$0")"
+TOKEN_JSON="$($SCRIPT_DIR/get_token.sh)"
+TOKEN="$(echo "$TOKEN_JSON" | jq -r '.access_token')"
+
+API_URL="https://ihealth2-api.f5.com/qkview-analyzer/api/qkviews/$QKVIEW_ID"
+
+curl -sS --request GET \
+  --url "$API_URL" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Accept: application/vnd.f5.ihealth.api" \
+  -H "User-Agent: OpenClaw" | jq
